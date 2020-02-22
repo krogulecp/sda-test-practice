@@ -12,11 +12,17 @@ class Splitter {
         int suma =0;
         String[] numbersArr = numbers.split("");
         for (int i = 0; i < numbersArr.length; i++){
-            int result = Integer.parseInt(numbersArr[i]);
-            suma += result;
+            try {
+                suma += Integer.parseInt(numbersArr[i]);
+            } catch (NumberFormatException e){
+                throw new InvalidInputException("Błąd parsowania liczby: " + numbersArr[i], e);
+            }
         }
         return suma;
     }
+
+
+
 
     public int splitNumbersForeach(String numbers){
         int suma =0;
