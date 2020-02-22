@@ -35,14 +35,14 @@ class SplitterTest {
         assertEquals(6, result);
     }
 
-    @Test
-    void should_throw_exception_whit_invalid_numbers_input(){
-        //given
-        Splitter splitter = new Splitter();
-
-        //when and then
-        assertThrows(InvalidInputException.class, () -> splitter.splitNumbers("x22"));
-    }
+//    @Test
+//    void should_throw_exception_whit_invalid_numbers_input(){
+//        //given
+//        Splitter splitter = new Splitter();
+//
+//        //when and then
+//        assertThrows(InvalidInputException.class, () -> splitter.splitNumbers("x22"));
+//    }
 
 
 }
