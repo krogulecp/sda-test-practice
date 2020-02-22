@@ -7,6 +7,9 @@ package info.krogulec.sda.testpractice;
 class FemaleNameChecker {
 
     public String nameGenerate (String name){
+        if (name == null){
+            throw new InvalidInputException("Imię nie może być nullem");
+        }
         String[] letterArray = name.trim().toLowerCase().split("");
         for (String s : letterArray){
             if (s.equals(" ")){

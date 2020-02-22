@@ -35,11 +35,17 @@ class FemaleNameCheckerTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {
-        "czesław", "anna maria", "", "              a", "Anna;.", "la"
+    @CsvSource(value = {
+            "czesław,To nie jest imię żeńskie!",
+            "anna maria,Więcej niż jedno słowo!",
+            ",Imię nie może być nullem",
+            "       a,To nie jest imię żeńskie!",
+            "Anna;.,To nie jest imię żeńskie!",
+            "la,To nie jest imię żeńskie!"
     })
-    void should_throw_exception_with_invalid_input(String inputName){
+    void should_throw_exception_with_invalid_input(String inputName, String expectedMessage){
 
-        assertThrows(InvalidInputException.class, () -> femaleNameChecker.nameGenerate(inputName));
+        InvalidInputException exception = assertThrows(InvalidInputException.class, () -> femaleNameChecker.nameGenerate(inputName));
+        assertEquals(expectedMessage, exception.getMessage());
     }
 }
