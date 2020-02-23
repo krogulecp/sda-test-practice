@@ -20,8 +20,8 @@ class Calculator {
     }
 
     double calculate(){
-        //TODO
-        return 0;
+        OperationProcessor operationProcessor = provideProcessor();
+        return operationProcessor.process(arg1,arg2);
     }
 
     private OperationProcessor provideProcessor(){

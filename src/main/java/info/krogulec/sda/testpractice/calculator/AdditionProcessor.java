@@ -7,8 +7,7 @@ class AdditionProcessor implements OperationProcessor {
 
     @Override
     public double process(int arg1, int arg2) {
-        //TODO
-        return 0;
+        return arg1 + arg2;
     }
 
     @Override
